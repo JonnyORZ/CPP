@@ -20,5 +20,5 @@ int main()
 		c = getchar();
 	} while (c != 'Y'&&c != 'y');
 	return 0;
-
+	AAA
 }
