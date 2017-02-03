@@ -34,6 +34,6 @@ int GetInputData(double &S0, double &U, double &D, double &R)
 		return 1;
 	}
 	cout << "Input data checked" << endl;
-	cout << "There is no arbitrage" << endl;
+	cout << "There is no arbitrage" << endl<<endl;
 	return 0;
 }

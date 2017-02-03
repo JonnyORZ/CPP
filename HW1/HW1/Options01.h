@@ -4,5 +4,7 @@
 int GetInputData(int &N, double &K);
 double PriceByCRR(double S0, double U, double D, double R, int N, double K);
 double CallPayoff(double z, double K);
+double PriceByCRR2(double S0, double U, double D, double R, int N, double K);
+int Factorial(int N);
 
 #endif

@@ -12,13 +12,13 @@ int main()
 	int N;
 	cout << "Enter call option data:" << endl;
 	GetInputData(N, K);
-	cout << "European call option price=" << PriceByCRR(S0, U, D, R, N, K) << endl << endl;
+	cout << "European call option price by 1=" << PriceByCRR(S0, U, D, R, N, K) << endl << endl;
+	cout << "European call option price by 2=" << PriceByCRR2(S0, U, D, R, N, K) << endl << endl;
 	
 	char c=getchar();
 	do {
-		cout << "aa";
+		cout << "Input Y to stop" << endl;
 		c = getchar();
 	} while (c != 'Y'&&c != 'y');
 	return 0;
-	AAA
 }

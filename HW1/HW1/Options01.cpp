@@ -8,6 +8,7 @@ int GetInputData(int &N, double &K)
 {
 	cout << "Enter steps to expiry N:"; cin >> N;
 	cout << "Enter strike price K:"; cin >> K;
+	cout << endl;
 	if (N < 0 || K < 0)
 	{
 		cout << "Illegal Data";
@@ -45,9 +46,29 @@ int Factorial(int N)
 {
 	int i;
 	int temp = 1;
-	for (i > 0; i = N; i--)
+	if (N <=0)
+		return 1;
+	for (i=N; i>0; i--)
 	{
 		temp = temp*i;
 	}
 	return temp;
 }
+
+double PriceByCRR2(double S0, double U, double D, double R, int N, double K)
+{
+	double q = RiskNeutProb(U, D, R);
+	double Price[100];
+	for (int i = 0; i <= N; i++)
+	{
+		Price[i] = CallPayoff(S(S0, U, D, N, i), K);
+	}
+	int FactorialN = Factorial(N);
+	for (int i = 0; i <= N; i++)
+	{
+		Price[0] = Price[0] + FactorialN*pow(q, i)*pow(1 - q, N - i)*Price[i] / (Factorial(i)*Factorial(N - i));
+	}
+	Price[0] = Price[0] / pow(1 + R, N);
+	return Price[0];
+}
+
